@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import SEO from 'seo.config';
+import { appWithTranslation } from 'next-i18next';
 
 const queryClient = new QueryClient();
 
@@ -18,4 +19,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
