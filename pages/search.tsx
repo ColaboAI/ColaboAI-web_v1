@@ -3,19 +3,19 @@ import Layout from '../src/components/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 
-const Home: NextPageWithLayout = () => {
+const Search: NextPageWithLayout = () => {
   return (
     <div>
       <NextSeo
-        title="home"
-        description="home description"
+        title="search"
+        description="search description"
         canonical="https://colabo.ai"
         openGraph={{
           url: 'https://colabo.ai',
         }}
       />
       <section>
-        <h2>Layout Example (Home)</h2>
+        <h2>Layout Example (Search)</h2>
         <p>
           This example adds a property <code>getLayout</code> to your page, allowing you to return a React component for
           the layout. This allows you to define the layout on a per-page basis. Since we're returning a function, we can
@@ -40,8 +40,8 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = function getLayout(page: ReactElement) {
+Search.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default Home;
+export default Search;
