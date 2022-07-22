@@ -15,7 +15,7 @@ const Home: NextPageWithLayout = () => {
         }}
       />
       <section>
-        <h2>Layout Example (Home)</h2>
+        <h2>인공지능으로 작곡한 음악 저작권 걱정없이 무료로 이용하세요.</h2>
         <p>
           This example adds a property <code>getLayout</code> to your page, allowing you to return a React component for
           the layout. This allows you to define the layout on a per-page basis. Since we're returning a function, we can

@@ -3,10 +3,18 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, SpoqaHanSansNeo;
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo";
+  src: url("/public/static/fonts/SpoqaHanSansNeo-Bold.otf") format("opentype");
+  font-weight: auto;
+  font-style: auto;
 }
 
 a {
+  font-family: SpoqaHanSansNeo;
   color: inherit;
   text-decoration: none;
 }
@@ -14,3 +22,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+p {
+  font-family: SpoqaHanSansNeo;
+}
+
+h2 {
+  font-family: SpoqaHanSansNeo;
+}
+
+$primaryColor: #00ffff;
