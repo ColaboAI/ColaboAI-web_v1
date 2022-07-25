@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import SEO from 'seo.config';
 import { appWithTranslation } from 'next-i18next';
+import '/public/static/fonts/styles.scss';
 
 const queryClient = new QueryClient();
 
