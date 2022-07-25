@@ -9,7 +9,13 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch --passWithNoTests",
-    "test:ci": "jest --ci --passWithNoTests"
+    "test:ci": "jest --ci --passWithNoTests",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "yarn run check-format && yarn run check-lint && yarn run check-types && yarn run build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.0.8",
@@ -49,6 +55,7 @@
     "jest-environment-jsdom": "^28.1.3",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.7",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "husky": "^8.0.0"
   }
 }
