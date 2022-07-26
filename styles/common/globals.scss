@@ -1,0 +1,26 @@
+@import 'common';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $SpoqaHanSansNeo_FONT;
+}
+
+a {
+  font-family: $SpoqaHanSansNeo_FONT;
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-family: $SpoqaHanSansNeo_FONT;
+}
+
+h2 {
+  font-family: $SpoqaHanSansNeo_FONT;
+}
