@@ -10,9 +10,9 @@ export const playState = atom<boolean>({
   default: false,
 });
 
-export const playIdState = atom<any>({
+export const playIdState = atom<number>({
   key: 'playIdState',
-  default: '',
+  default: 0,
 });
 
 export const volumeState = atom<number>({
