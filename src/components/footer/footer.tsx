@@ -59,8 +59,6 @@ export default function Footer() {
             <AudioPlayer
               className="music-status"
               src={audio}
-              autoPlay={false}
-              preload={'metadata'}
               ref={myRef}
               onEnded={onMusicEnd}
               layout="horizontal-reverse"
