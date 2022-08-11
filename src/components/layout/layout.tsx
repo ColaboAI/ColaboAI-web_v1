@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '/styles/layout.module.scss';
-import Header from '@src/components/header';
-import Sidebar from '@src/components/sidebar';
+import Header from '@src/components/header/header';
+import Sidebar from '@src/components/sidebar/sidebar';
 import Footer from '@src/components/footer/footer';
 
 type AppLayoutProps = {
