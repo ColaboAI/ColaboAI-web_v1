@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import Layout from '../src/components/layout';
+import Layout from '@src/components/layout/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import usePlay from '@src/hooks/usePlay';
@@ -18,9 +18,25 @@ const musicList = [
     id: '3',
     musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
   },
+  {
+    id: '4',
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
+  },
+  {
+    id: '5',
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
+  },
+  {
+    id: '6',
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
+  },
+  {
+    id: '7',
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
+  },
 ];
 
-const Home: NextPageWithLayout = () => {
+const Index: NextPageWithLayout = () => {
   const [play, playId, start, stop] = usePlay();
 
   return (
@@ -50,8 +66,8 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default Home;
+export default Index;

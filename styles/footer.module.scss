@@ -1,21 +1,19 @@
 @import 'common/common';
 
 .footer {
-  .footer-inner {
-    margin: auto;
-    padding: 0px 30px;
-    max-width: 1200px;
-    display: flex;
-  }
-
-  background-color: $COMMON_BACKGROUND;
+  background-color: $MAIN_DARKGRAY;
   position: fixed;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid $MAIN_DARKGRAY;
   bottom: 0px;
   left: 0px;
   width: 100%;
-  height: 50px;
-  color: $CUSTOM_BLUE;
+  height: 110px;
+  color: $FONT_WHITE;
+
+  .footer-inner {
+    margin: auto;
+    display: flex;
+  }
 
   .footer-button {
     position: relative;
@@ -24,7 +22,7 @@
     border: 0;
     height: 50px;
 
-    svg {
+    .svg {
       cursor: pointer;
       width: 30px;
       height: 30px;
@@ -36,20 +34,17 @@
     padding: 16px 15px;
   }
 
-  .music-status {
-    width: 50%;
-    position: relative;
-    background: $COMMON_BACKGROUND;
+  .music-player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $MAIN_DARKGRAY;
 
     .rhap_time {
-      font-size: 13px;
+      font-size: 20px;
     }
 
-    .rhap_controls-section {
-      display: none;
-    }
-
-    .rhap_progress-indicator {
+    .rhap_progress-bar {
       width: 8px;
       height: 8px;
       margin-left: -5px;
@@ -58,7 +53,11 @@
     }
 
     .rhap_progress-filled {
-      background: $CUSTOM_BLUE;
+      background: #eaeaea;
+    }
+
+    .rhap_controls-section {
+      display: none;
     }
   }
 }

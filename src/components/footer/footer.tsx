@@ -1,12 +1,9 @@
 import AudioPlayer from 'react-h5-audio-player';
-import H5AudioPlayer from 'react-h5-audio-player';
+import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import React, { useEffect, useRef } from 'react';
 import { audioState, muteState, playState, volumeState } from '@src/store/atom';
-import { MdPause, MdPlayArrow, MdSkipNext, MdSkipPrevious } from 'react-icons/md';
-import PlayStatus from '@src/components/footer/playStatus';
-import VolumeStatus from '@src/components/footer/volumeStatus';
-import 'styles/footer.module.scss';
+import '/styles/footer.module.scss';
 
 export default function Footer() {
   const audio = useRecoilValue(audioState);
@@ -14,15 +11,6 @@ export default function Footer() {
   const [play, setPlay] = useRecoilState(playState);
   const volume = useRecoilValue(volumeState);
   const mute = useRecoilValue(muteState);
-
-  const start = () => {
-    if (myRef.current?.audio.current) myRef.current.audio.current.volume = volume / 100;
-    setPlay(true);
-  };
-
-  const stop = () => {
-    setPlay(false);
-  };
 
   const onMusicEnd = () => {
     setPlay(false);
@@ -41,31 +29,27 @@ export default function Footer() {
       {audio && (
         <div className="footer">
           <div className="footer-inner">
-            <button className="footer-button">
-              <MdSkipPrevious />
-            </button>
-            {play ? (
-              <button className="footer-button" onClick={stop}>
-                <MdPause />
-              </button>
-            ) : (
-              <button className="footer-button" onClick={start}>
-                <MdPlayArrow />
-              </button>
-            )}
-            <button className="footer-button">
-              <MdSkipNext />
-            </button>
             <AudioPlayer
-              className="music-status"
+              className="music-player"
               src={audio}
+              customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
+              customVolumeControls={[RHAP_UI.LOOP, RHAP_UI.VOLUME]}
+              customAdditionalControls={[<div>앨범</div>]}
+              customControlsSection={[
+                RHAP_UI.MAIN_CONTROLS,
+                RHAP_UI.CURRENT_TIME,
+                <div>/</div>,
+                RHAP_UI.DURATION,
+                RHAP_UI.ADDITIONAL_CONTROLS,
+                RHAP_UI.VOLUME_CONTROLS,
+              ]}
               ref={myRef}
               onEnded={onMusicEnd}
-              layout="horizontal-reverse"
+              showSkipControls={true}
+              showJumpControls={false}
+              showDownloadProgress={false}
               hasDefaultKeyBindings={false}
             />
-            <VolumeStatus />
-            <PlayStatus />
           </div>
         </div>
       )}
