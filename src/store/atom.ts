@@ -24,3 +24,8 @@ export const muteState = atom<boolean>({
   key: 'muteState',
   default: false,
 });
+
+export const searchWordState = atom<string>({
+  key: 'searchWordState',
+  default: '',
+});
