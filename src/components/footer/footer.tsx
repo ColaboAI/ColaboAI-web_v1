@@ -3,7 +3,7 @@ import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import React, { useEffect, useRef } from 'react';
 import { audioState, muteState, playState, volumeState } from '@src/store/atom';
-import '/styles/footer.module.scss';
+import styles from '/styles/footer.module.scss';
 
 export default function Footer() {
   const audio = useRecoilValue(audioState);
@@ -27,18 +27,18 @@ export default function Footer() {
   return (
     <>
       {audio && (
-        <div className="footer">
-          <div className="footer-inner">
+        <div className={styles.footer}>
+          <div className={styles['footer-inner']}>
             <AudioPlayer
-              className="music-player"
+              className={styles['music-player']}
               src={audio}
               customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
               customVolumeControls={[RHAP_UI.LOOP, RHAP_UI.VOLUME]}
-              customAdditionalControls={[<div>앨범</div>]}
+              customAdditionalControls={[<div key="album">앨범</div>]}
               customControlsSection={[
                 RHAP_UI.MAIN_CONTROLS,
                 RHAP_UI.CURRENT_TIME,
-                <div>/</div>,
+                <div key="slash">/</div>,
                 RHAP_UI.DURATION,
                 RHAP_UI.ADDITIONAL_CONTROLS,
                 RHAP_UI.VOLUME_CONTROLS,
