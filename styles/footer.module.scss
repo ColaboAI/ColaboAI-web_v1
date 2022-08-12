@@ -39,25 +39,5 @@
     height: 100%;
     position: absolute;
     background: $MAIN_DARKGRAY;
-
-    .rhap_time {
-      font-size: 20px;
-    }
-
-    .rhap_progress-bar {
-      width: 8px;
-      height: 8px;
-      margin-left: -5px;
-      top: -1.3px;
-      background: white;
-    }
-
-    .rhap_progress-filled {
-      background: #eaeaea;
-    }
-
-    .rhap_controls-section {
-      display: none;
-    }
   }
 }
