@@ -7,32 +7,32 @@ import { IoMdPause, IoMdPlay } from 'react-icons/io';
 
 const musicList = [
   {
-    id: '1',
+    id: 0,
     musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/ziyounvshen.mp3',
   },
   {
-    id: '2',
+    id: 1,
     musicUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3',
   },
   {
-    id: '3',
+    id: 2,
     musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
   },
   {
-    id: '4',
+    id: 3,
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/ziyounvshen.mp3',
+  },
+  {
+    id: 4,
+    musicUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3',
+  },
+  {
+    id: 5,
     musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
   },
   {
-    id: '5',
-    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
-  },
-  {
-    id: '6',
-    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
-  },
-  {
-    id: '7',
-    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3',
+    id: 6,
+    musicUrl: 'https://hanzluo.s3-us-west-1.amazonaws.com/music/ziyounvshen.mp3',
   },
 ];
 
