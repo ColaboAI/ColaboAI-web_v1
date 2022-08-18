@@ -4,6 +4,7 @@ import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import usePlay from '@src/hooks/usePlay';
 import { IoMdPause, IoMdPlay } from 'react-icons/io';
+import styles from '/styles/index.module.scss';
 
 const musicList = [
   {
@@ -49,6 +50,18 @@ const Index: NextPageWithLayout = () => {
           url: 'https://colabo.ai',
         }}
       />
+      <div className={styles.background}>
+        <video muted autoPlay loop>
+          <source src="/mp4/background.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className={styles.title}>
+        <p>
+          인공지능으로 작곡한 음악 <br />
+          저작권 걱정없이 무료로 이용하세요
+        </p>
+        <button>시작하기</button>
+      </div>
       {musicList.map((music) => (
         <div key={music.id}>
           {playId === music.id && play ? (

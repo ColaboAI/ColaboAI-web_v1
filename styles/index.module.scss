@@ -1,0 +1,52 @@
+@import 'common/common';
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.background > video {
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 80px;
+}
+
+.title > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: $MAIN_WHITE;
+  font-size: 48px;
+  margin-left: -250px;
+}
+
+.title > button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  width: 270px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  background-color: $MAIN_WHITE;
+  color: $MAIN_BLACK;
+  font-size: 28px;
+  margin-left: -250px;
+}
+
+.title > button:hover {
+  opacity: 0.9;
+}
