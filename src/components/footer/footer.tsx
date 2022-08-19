@@ -2,7 +2,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import React, { useEffect, useRef } from 'react';
-import { audioState, muteState, playState, volumeState } from '@src/store/atom';
+import { audioState, musicArtistState, musicNameState, muteState, playState, volumeState } from '@src/store/atom';
 import styles from '/styles/footer.module.scss';
 
 export default function Footer() {
@@ -11,6 +11,8 @@ export default function Footer() {
   const [play, setPlay] = useRecoilState(playState);
   const volume = useRecoilValue(volumeState);
   const mute = useRecoilValue(muteState);
+  const musicName = useRecoilValue(musicNameState);
+  const musicArtist = useRecoilValue(musicArtistState);
 
   const onMusicEnd = () => {
     setPlay(false);
@@ -34,7 +36,13 @@ export default function Footer() {
               src={audio}
               customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
               customVolumeControls={[RHAP_UI.LOOP, RHAP_UI.VOLUME]}
-              customAdditionalControls={[<div key="album">앨범</div>]}
+              customAdditionalControls={[
+                <div className={styles['music-info']} key="music">
+                  <div className={styles['music-album']}>앨범</div>
+                  <div className={styles['music-name']}>{musicName}</div>
+                  <div className={styles['music-artist']}>{musicArtist}</div>
+                </div>,
+              ]}
               customControlsSection={[
                 RHAP_UI.MAIN_CONTROLS,
                 RHAP_UI.CURRENT_TIME,

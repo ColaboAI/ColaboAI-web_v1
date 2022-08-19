@@ -71,7 +71,6 @@ h2 {
   color: $MAIN_WHITE;
   font-family: $SpoqaHanSansNeo_FONT_REGULAR !important;
   font-size: 12px;
-
   margin-left: 3px;
 }
 
@@ -86,6 +85,11 @@ h2 {
 
 .rhap_button-clear.rhap_volume-button {
   color: $MAIN_WHITE;
+}
+
+.rhap_volume-controls {
+  flex: 0 1 180px !important;
+  justify-content: center !important;
 }
 
 .rhap_volume-bar,
