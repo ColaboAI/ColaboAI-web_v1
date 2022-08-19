@@ -4,13 +4,26 @@ import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import usePlay from '@src/hooks/usePlay';
 import Link from 'next/link';
-import { IoMdArrowRoundDown, IoMdHeartEmpty, IoMdPause, IoMdPlay, IoMdShare, IoMdStarOutline } from 'react-icons/io';
+import {
+  IoMdArrowRoundDown,
+  IoMdHeartEmpty,
+  IoMdHeart,
+  IoMdPause,
+  IoMdPlay,
+  IoMdShare,
+  IoMdStarOutline,
+  IoMdStar,
+} from 'react-icons/io';
 import styles from '/styles/index.module.scss';
 import { useRecoilValue } from 'recoil';
 import { musicListState } from '@src/store/atom';
+import useHeart from '@src/hooks/useHeart';
+import useStar from '@src/hooks/useStar';
 
 const Index: NextPageWithLayout = () => {
-  const [play, playId, start, stop] = usePlay();
+  const [play, musicId, start, stop] = usePlay();
+  const [heart, fillHeart, unFillHeart] = useHeart();
+  const [star, fillStar, unFillStar] = useStar();
   const musicList = useRecoilValue(musicListState);
 
   return (
@@ -46,7 +59,7 @@ const Index: NextPageWithLayout = () => {
             <div>{music.musicId}</div>
             <div className={styles.album}>앨범</div>
             <div className={styles.start}>
-              {playId === music.musicId && play ? (
+              {musicId === music.musicId && play ? (
                 <IoMdPause size={25} onClick={stop} />
               ) : (
                 <IoMdPlay size={25} onClick={() => start(music)} />
@@ -55,15 +68,27 @@ const Index: NextPageWithLayout = () => {
             <div className={styles.musicName}>{music.musicName}</div>
             <div className={styles.musicArtist}>{music.musicArtist}</div>
             <div className={styles.icons}>
-              <div>
-                <IoMdHeartEmpty size={25} />
-              </div>
+              {!heart ? (
+                <div>
+                  <IoMdHeartEmpty onClick={fillHeart} size={25} />
+                </div>
+              ) : (
+                <div>
+                  <IoMdHeart onClick={unFillHeart} size={25} />
+                </div>
+              )}
               <div>
                 <IoMdArrowRoundDown size={25} />
               </div>
-              <div>
-                <IoMdStarOutline size={25} />
-              </div>
+              {!star ? (
+                <div>
+                  <IoMdStarOutline onClick={fillStar} size={25} />
+                </div>
+              ) : (
+                <div>
+                  <IoMdStar onClick={unFillStar} size={25} />
+                </div>
+              )}
               <div>
                 <IoMdShare size={25} />
               </div>
