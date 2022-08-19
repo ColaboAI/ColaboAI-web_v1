@@ -4,19 +4,20 @@
   display: flex;
   background: #171719;
   height: 80px;
-  width: 100vw;
+  width: 100%;
 }
 
 .logo {
   display: flex;
-  background: #171719;
   align-items: center;
+  justify-content: center;
+  width: 250px;
+  background: #171719;
 }
 
 .logo > a {
   text-decoration: none;
   font-size: 28px;
-  width: 250px;
   float: left;
   color: #ffffff;
 }
