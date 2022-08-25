@@ -38,7 +38,7 @@ const Index: NextPageWithLayout = () => {
       />
       <div className={styles.background}>
         <video muted autoPlay loop>
-          <source src="/mp4/background.mp4" type="video/mp4" />
+          <source src="/mp4/index_background.mp4" type="video/mp4" />
         </video>
       </div>
       <div className={styles.title}>
