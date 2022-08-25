@@ -41,14 +41,15 @@
   height: 60px;
   border: none;
   border-radius: 5px;
-  background-color: $MAIN_WHITE;
+  background-color: rgba(255, 255, 255, 0.8);
   color: $MAIN_BLACK;
   font-size: 28px;
   margin-left: -250px;
-}
-
-.title > button:hover {
-  opacity: 0.9;
+  &:hover {
+    transition: all 0.3s;
+    transform: scale(1.03);
+    background-color: rgba(0, 255, 255, 0.8);
+  }
 }
 
 .playList {

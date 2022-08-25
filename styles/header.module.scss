@@ -17,9 +17,13 @@
 
 .logo > a {
   text-decoration: none;
-  font-size: 28px;
+  font-size: 24px;
   float: left;
   color: #ffffff;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.03);
+  }
 }
 
 .header {
@@ -32,7 +36,7 @@
 .search {
   color: #fcfcfc;
   background: $MAIN_DARKGRAY;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid $MAIN_DARKGRAY;
   font-size: 14px;
   padding: 8px 16px;
@@ -58,6 +62,11 @@
   color: #ffffff;
   transition: all 0.125s ease;
   padding: 20px;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.03);
+    color: $MAIN_AQUA;
+  }
 }
 
 .button:hover {

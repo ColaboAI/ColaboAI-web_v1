@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { searchWordState } from '@src/store/atom';
 import { ChangeEvent } from 'react';
 import Link from 'next/link';
+import { router } from 'next/client';
 
 export default function Header() {
   const [searchWord, setSearchWord] = useRecoilState(searchWordState);
@@ -14,7 +15,7 @@ export default function Header() {
     <div className={styles.headerContainer}>
       <div className={styles.logo}>
         <Link href="/">
-          <a>ColaboAI</a>
+          <a>루프에이아이</a>
         </Link>
       </div>
       <div className={styles.header}>
@@ -22,8 +23,9 @@ export default function Header() {
           <input className={styles.search} onChange={handleInput} value={searchWord} placeholder="검색하기" />
         </div>
         <div>
-          <button className={styles.button}>로그인</button>
-          <button className={styles.button}>회원가입</button>
+          <button className={styles.button} onClick={() => router.push('/register')}>
+            로그인 / 회원가입
+          </button>
         </div>
       </div>
     </div>
