@@ -3,14 +3,14 @@ import { useRecoilState } from 'recoil';
 import { searchWordState } from '@src/store/atom';
 import { ChangeEvent } from 'react';
 import Link from 'next/link';
-import { router } from 'next/client';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const [searchWord, setSearchWord] = useRecoilState(searchWordState);
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
-
+  const router = useRouter();
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>
