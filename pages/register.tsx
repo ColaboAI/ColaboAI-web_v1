@@ -3,11 +3,11 @@ import Layout from '@src/components/layout/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import styles from '/styles/register.module.scss';
-import { useRegister } from '@src/hooks/useRegister';
+import { useRegister } from 'src/hooks/useRegister';
 // TODO: Register 컴포넌트에서 이메일 중복 체크를 하는 기능을 추가해야함.
 
 const Register: NextPageWithLayout = () => {
-  const [{ email, password }, onChangeForm, onClickRegister] = useRegister();
+  const [{ email, password }, onChangeForm, mutation] = useRegister();
   return (
     <div>
       <NextSeo
@@ -45,7 +45,7 @@ const Register: NextPageWithLayout = () => {
             />
           </div>
           <div className={styles.login}>
-            <button onClick={() => onClickRegister()}>회원가입</button>
+            <button onClick={() => mutation.mutate({ email, password })}>회원가입</button>
           </div>
           <div className={styles.social}>
             <button>구글</button>
