@@ -1,11 +1,5 @@
 import { atom } from 'recoil';
-
-export interface MusicListTypes {
-  musicId: number;
-  musicUrl: string;
-  musicName: string;
-  musicArtist: string;
-}
+import { MusicListTypes } from 'types/music';
 
 export const audioState = atom<string>({
   key: 'audioState',
