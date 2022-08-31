@@ -9,9 +9,12 @@ import SEO from 'seo.config';
 import { appWithTranslation } from 'next-i18next';
 import '/public/static/fonts/styles.scss';
 import 'react-h5-audio-player/src/styles.scss';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Toaster } from 'react-hot-toast';
 
-const queryClient = new QueryClient();
-
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } },
+});
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -28,7 +31,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <RecoilRoot>
         <DefaultSeo {...SEO} />
         {getLayout(<Component {...pageProps} />)}
+        <Toaster position="top-center" reverseOrder={false} />
       </RecoilRoot>
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }
