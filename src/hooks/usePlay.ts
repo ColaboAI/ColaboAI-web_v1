@@ -1,7 +1,8 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { audioState, musicArtistState, musicIdState, musicNameState, playState } from 'src/store/atom';
+import { MusicListTypes } from 'types/music';
 
-type ReturnType = [boolean, number, (music: any) => void, () => void, string, string];
+type ReturnType = [boolean, number, (music: MusicListTypes) => void, () => void, string, string];
 
 const usePlay = (): ReturnType => {
   const [play, setPlay] = useRecoilState(playState);
@@ -11,7 +12,7 @@ const usePlay = (): ReturnType => {
 
   const setAudio = useSetRecoilState(audioState);
 
-  const start = (music: any) => {
+  const start = (music: MusicListTypes) => {
     setMusicId(music.musicId);
     setAudio(music.musicUrl);
     setMusicName(music.musicName);
