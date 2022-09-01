@@ -46,7 +46,7 @@ const Index: NextPageWithLayout = () => {
           인공지능으로 작곡한 음악 <br />
           저작권 걱정없이 무료로 이용하세요
         </p>
-        <Link href="/register">
+        <Link href="/login">
           <button>시작하기</button>
         </Link>
       </div>

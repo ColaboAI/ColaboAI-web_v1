@@ -2,7 +2,8 @@ import type { ReactElement } from 'react';
 import Layout from '@src/components/layout/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
-import styles from '/styles/register.module.scss';
+import styles from '/styles/login.module.scss';
+import Link from 'next/link';
 
 const Register: NextPageWithLayout = () => {
   return (
@@ -17,29 +18,27 @@ const Register: NextPageWithLayout = () => {
       />
       <div className={styles.background}>
         <video muted autoPlay loop>
-          <source src="/mp4/register_background.mp4" type="video/mp4" />
+          <source src="/mp4/login_background.mp4" type="video/mp4" />
         </video>
       </div>
       <div className={styles.container}>
         <p>음악의 새로운 패러다임</p>
         <div className={styles.input}>
           <div>
-            <input className={styles.info} placeholder="아이디" />
+            <input className={styles.info} placeholder="이메일" />
           </div>
           <div>
-            <input className={styles.info} placeholder="패스워드" />
+            <input className={styles.info} placeholder="비밀번호" />
           </div>
           <div className={styles.login}>
             <button>로그인</button>
           </div>
-          <div className={styles.social}>
-            <button>구글</button>
-          </div>
-          <div className={styles.social}>
-            <button>페이스북</button>
-          </div>
-          <div className={styles.social}>
-            <button>카카오톡</button>
+          <div className={styles.toRegister}>
+            <p>루프에이아이가 처음이세요?</p>
+            <br />
+            <Link href="/register">
+              <button>회원가입</button>
+            </Link>
           </div>
         </div>
       </div>
