@@ -23,7 +23,7 @@ export default function Header() {
           <input className={styles.search} onChange={handleInput} value={searchWord} placeholder="검색하기" />
         </div>
         <div>
-          <button className={styles.button} onClick={() => router.push('/register')}>
+          <button className={styles.button} onClick={() => router.push('/login')}>
             로그인 / 회원가입
           </button>
         </div>

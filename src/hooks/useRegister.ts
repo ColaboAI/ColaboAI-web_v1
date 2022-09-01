@@ -12,6 +12,7 @@ type RegisterTypes = [
 type RegisterForm = {
   email: string;
   password: string;
+  confirmPassword: string;
 };
 
 export const useRegister = (): RegisterTypes => {
@@ -20,6 +21,7 @@ export const useRegister = (): RegisterTypes => {
   const [registerForm, setRegisterForm] = useState<RegisterForm>({
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const onChangeForm = useCallback(

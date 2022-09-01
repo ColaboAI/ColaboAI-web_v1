@@ -7,7 +7,7 @@ import { useRegister } from 'src/hooks/useRegister';
 // TODO: Register 컴포넌트에서 이메일 중복 체크를 하는 기능을 추가해야함.
 
 const Register: NextPageWithLayout = () => {
-  const [{ email, password }, onChangeForm, mutation] = useRegister();
+  const [{ email, password, confirmPassword }, onChangeForm, mutation] = useRegister();
   return (
     <div>
       <NextSeo
@@ -24,7 +24,10 @@ const Register: NextPageWithLayout = () => {
         </video>
       </div>
       <div className={styles.container}>
-        <p>음악의 새로운 패러다임</p>
+        <p>
+          지금 바로 회원가입하세요
+          <br />
+        </p>
         <div className={styles.input}>
           <div>
             <input
@@ -32,7 +35,7 @@ const Register: NextPageWithLayout = () => {
               className={styles.info}
               value={email}
               onChange={(e) => onChangeForm(e)}
-              placeholder="아이디"
+              placeholder="이메일"
             />
           </div>
           <div>
@@ -41,20 +44,20 @@ const Register: NextPageWithLayout = () => {
               className={styles.info}
               value={password}
               onChange={(e) => onChangeForm(e)}
-              placeholder="패스워드"
+              placeholder="비밀번호"
             />
           </div>
-          <div className={styles.login}>
+          <div>
+            <input
+              name={'password-confirm'}
+              className={styles.info}
+              value={confirmPassword}
+              onChange={(e) => onChangeForm(e)}
+              placeholder="비밀번호 확인"
+            />
+          </div>
+          <div className={styles.register}>
             <button onClick={() => mutation.mutate({ email, password })}>회원가입</button>
-          </div>
-          <div className={styles.social}>
-            <button>구글</button>
-          </div>
-          <div className={styles.social}>
-            <button>페이스북</button>
-          </div>
-          <div className={styles.social}>
-            <button>카카오톡</button>
           </div>
         </div>
       </div>
