@@ -4,15 +4,29 @@ import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import styles from '/styles/register.module.scss';
 import { useRegister } from 'src/hooks/useRegister';
-// TODO: Register 컴포넌트에서 이메일 중복 체크를 하는 기능을 추가해야함.
 
 const Register: NextPageWithLayout = () => {
-  const [{ email, password, confirmPassword }, onChangeForm, mutation] = useRegister();
+  const [
+    email,
+    password,
+    confirmPassword,
+    emailMessage,
+    passwordMessage,
+    confirmPasswordMessage,
+    isEmail,
+    isPassword,
+    isConfirmPassword,
+    onChangeEmail,
+    onChangePassword,
+    onChangeConfirmPassword,
+    mutation,
+  ] = useRegister();
+
   return (
     <div>
       <NextSeo
         title="register"
-        description="resgister description"
+        description="register description"
         canonical="https://colabo.ai"
         openGraph={{
           url: 'https://colabo.ai',
@@ -29,35 +43,44 @@ const Register: NextPageWithLayout = () => {
           <br />
         </p>
         <div className={styles.input}>
-          <div>
+          <div className={styles.formBox}>
             <input
               name={'email'}
               className={styles.info}
               value={email}
-              onChange={(e) => onChangeForm(e)}
+              onChange={(e) => onChangeEmail(e)}
               placeholder="이메일"
             />
+            {email.length > 0 && isEmail ? null : <p>{emailMessage}</p>}
           </div>
-          <div>
+          <div className={styles.formBox}>
             <input
               name={'password'}
+              type="password"
               className={styles.info}
               value={password}
-              onChange={(e) => onChangeForm(e)}
+              onChange={(e) => onChangePassword(e)}
               placeholder="비밀번호"
             />
+            {password.length > 0 && isPassword ? null : <p>{passwordMessage}</p>}
           </div>
-          <div>
+          <div className={styles.formBox}>
             <input
-              name={'password-confirm'}
+              name={'confirmPassword'}
+              type="password"
               className={styles.info}
               value={confirmPassword}
-              onChange={(e) => onChangeForm(e)}
+              onChange={(e) => onChangeConfirmPassword(e)}
               placeholder="비밀번호 확인"
             />
+            {confirmPassword.length > 0 && isConfirmPassword ? null : <p>{confirmPasswordMessage}</p>}
           </div>
           <div className={styles.register}>
-            <button onClick={() => mutation.mutate({ email, password })}>회원가입</button>
+            <button
+              disabled={!(isEmail && isPassword && isConfirmPassword)}
+              onClick={() => mutation.mutate({ email, password })}>
+              회원가입
+            </button>
           </div>
         </div>
       </div>

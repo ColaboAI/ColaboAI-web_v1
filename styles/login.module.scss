@@ -99,10 +99,9 @@
   color: $FONT_WHITE;
   font-size: 20px;
   background-color: transparent;
-  &:hover{
+  &:hover {
     background-color: rgba(0, 255, 255, 0.4);
     text-decoration: underline;
     cursor: pointer;
   }
 }
-
