@@ -73,17 +73,6 @@ export const useRegister = (): RegisterTypes => {
     [password],
   );
 
-  // const onChangeForm = useCallback(
-  //   (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     const { name, value } = e.target;
-  //     setRegisterForm({
-  //       ...registerForm,
-  //       [name]: value,
-  //     });
-  //   },
-  //   [registerForm],
-  // );
-
   return [
     email,
     password,
