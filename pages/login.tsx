@@ -28,7 +28,7 @@ const Register: NextPageWithLayout = () => {
             <input className={styles.info} placeholder="이메일" />
           </div>
           <div>
-            <input className={styles.info} placeholder="비밀번호" />
+            <input className={styles.info} type="password" placeholder="비밀번호" />
           </div>
           <div className={styles.login}>
             <button>로그인</button>
