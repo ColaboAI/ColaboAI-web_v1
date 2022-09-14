@@ -1,14 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import toast from 'react-hot-toast';
-
 import { UserCreate, UserRead } from 'types/user';
-
-// TODO: set baseURL, Make advance error Handling Logic, Add loading toast
-async function postUser(params: UserCreate) {
-  const data = await axios.post('http://localhost:8000/auth/register', params);
-  return data;
-}
+import { postUser } from '@src/api/api';
 
 export function useRegisterQuery() {
   const mutation = useMutation<AxiosResponse<UserRead>, AxiosError, UserCreate, unknown>(postUser, {
@@ -19,6 +13,5 @@ export function useRegisterQuery() {
       toast.success(`회원가입에 성공하였습니다!: ${data.data.email}`);
     },
   });
-
   return mutation;
 }
