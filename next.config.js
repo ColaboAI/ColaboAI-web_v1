@@ -8,6 +8,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    domains: ['colaboai-server-v1.s3.ap-northeast-2.amazonaws.com'],
+  },
   i18n,
 };
 

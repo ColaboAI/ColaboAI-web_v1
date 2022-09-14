@@ -15,17 +15,21 @@ import {
   IoMdStar,
 } from 'react-icons/io';
 import styles from '/styles/index.module.scss';
-import { useRecoilValue } from 'recoil';
-import { musicListState } from '@src/store/atom';
 import useHeart from '@src/hooks/useHeart';
 import useStar from '@src/hooks/useStar';
+import useMusicQuery from '@src/queries/music.queries';
+import Image from 'next/image';
 
 const Index: NextPageWithLayout = () => {
   const [play, musicId, start, stop] = usePlay();
   const [heart, fillHeart, unFillHeart] = useHeart();
   const [star, fillStar, unFillStar] = useStar();
-  const musicList = useRecoilValue(musicListState);
+  const { data, isLoading } = useMusicQuery();
 
+  // TODO : set Loading Image
+  if (isLoading || data === undefined) {
+    return <div>로딩 중...</div>;
+  }
   return (
     <div>
       <NextSeo
@@ -54,19 +58,21 @@ const Index: NextPageWithLayout = () => {
         <div className={styles.playListHeader}>
           <p>AI BGM TOP 10</p>
         </div>
-        {musicList.map((music) => (
-          <div className={styles.musicContainer} key={music.musicId}>
-            <div>{music.musicId}</div>
-            <div className={styles.album}>앨범</div>
+        {data.map((music) => (
+          <div className={styles.musicContainer} key={music.id}>
+            <div>{music.id}</div>
+            <div className={styles.album}>
+              <Image src={music.cover_image_url} width={60} height={60} />
+            </div>
             <div className={styles.start}>
-              {musicId === music.musicId && play ? (
+              {musicId === music.id && play ? (
                 <IoMdPause size={25} onClick={stop} />
               ) : (
                 <IoMdPlay size={25} onClick={() => start(music)} />
               )}
             </div>
-            <div className={styles.musicName}>{music.musicName}</div>
-            <div className={styles.musicArtist}>{music.musicArtist}</div>
+            <div className={styles.musicName}>{music.title}</div>
+            <div className={styles.musicArtist}>{music.artist_name}</div>
             <div className={styles.icons}>
               {!heart ? (
                 <div>
