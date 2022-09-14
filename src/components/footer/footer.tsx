@@ -2,8 +2,17 @@ import AudioPlayer from 'react-h5-audio-player';
 import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import React, { useEffect, useRef } from 'react';
-import { audioState, musicArtistState, musicNameState, muteState, playState, volumeState } from '@src/store/atom';
+import {
+  audioState,
+  coverAlbumState,
+  musicArtistState,
+  musicNameState,
+  muteState,
+  playState,
+  volumeState,
+} from '@src/store/atom';
 import styles from '/styles/footer.module.scss';
+import Image from 'next/image';
 
 export default function Footer() {
   const audio = useRecoilValue(audioState);
@@ -13,6 +22,7 @@ export default function Footer() {
   const mute = useRecoilValue(muteState);
   const musicName = useRecoilValue(musicNameState);
   const musicArtist = useRecoilValue(musicArtistState);
+  const coverAlbum = useRecoilValue(coverAlbumState);
 
   const onMusicEnd = () => {
     setPlay(false);
@@ -26,6 +36,8 @@ export default function Footer() {
     } else myRef.current.audio.current.pause();
   }, [play, audio, volume, mute]);
 
+  // TODO : 재생 버튼 연동 버그 해결
+
   return (
     <>
       {audio && (
@@ -38,7 +50,9 @@ export default function Footer() {
               customVolumeControls={[RHAP_UI.LOOP, RHAP_UI.VOLUME]}
               customAdditionalControls={[
                 <div className={styles['music-info']} key="music">
-                  <div className={styles['music-album']}>앨범</div>
+                  <div className={styles['music-album']}>
+                    <Image src={coverAlbum} width={50} height={50} />
+                  </div>
                   <div className={styles['music-name']}>{musicName}</div>
                   <div className={styles['music-artist']}>{musicArtist}</div>
                 </div>,
