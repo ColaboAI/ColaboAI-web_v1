@@ -27,6 +27,12 @@ export default function Footer() {
   const onMusicEnd = () => {
     setPlay(false);
   };
+  const onPlay = () => {
+    setPlay(true);
+  };
+  const onPause = () => {
+    setPlay(false);
+  };
 
   useEffect(() => {
     if (!myRef.current?.audio.current) return;
@@ -35,8 +41,6 @@ export default function Footer() {
       myRef.current.audio.current.volume = mute ? 0 : volume / 100;
     } else myRef.current.audio.current.pause();
   }, [play, audio, volume, mute]);
-
-  // TODO : 재생 버튼 연동 버그 해결
 
   return (
     <>
@@ -66,11 +70,13 @@ export default function Footer() {
                 RHAP_UI.VOLUME_CONTROLS,
               ]}
               ref={myRef}
-              onEnded={onMusicEnd}
               showSkipControls={true}
               showJumpControls={false}
               showDownloadProgress={false}
               hasDefaultKeyBindings={false}
+              onPlay={onPlay}
+              onPause={onPause}
+              onEnded={onMusicEnd}
             />
           </div>
         </div>
