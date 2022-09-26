@@ -5,6 +5,7 @@
   background: #171719;
   height: 80px;
   width: 100%;
+  overflow: hidden;
 }
 
 .logo {
@@ -31,6 +32,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  overflow: hidden;
 }
 
 .search {
@@ -41,7 +43,7 @@
   font-size: 14px;
   padding: 8px 16px;
   height: 45px;
-  width: 700px;
+  width: 600px;
 }
 
 .search:focus {
@@ -62,6 +64,9 @@
   color: #ffffff;
   transition: all 0.125s ease;
   padding: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   &:hover {
     transition: all 0.2s;
     transform: scale(1.03);

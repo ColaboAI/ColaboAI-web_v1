@@ -1,4 +1,5 @@
 @import 'common/common';
+@import 'common/mixins';
 
 .background {
   display: flex;
@@ -12,6 +13,7 @@
 
 .background > video {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -25,6 +27,9 @@
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title > p {
@@ -32,7 +37,7 @@
   word-spacing: 3px;
   color: $MAIN_WHITE;
   font-size: 48px;
-  margin-left: -250px;
+  //margin-left: -250px;
 }
 
 .title > button {
@@ -44,7 +49,7 @@
   background-color: rgba(255, 255, 255, 0.8);
   color: $MAIN_BLACK;
   font-size: 28px;
-  margin-left: -250px;
+  //margin-left: -250px;
   &:hover {
     transition: all 0.3s;
     transform: scale(1.03);
@@ -84,7 +89,7 @@
   width: 100%;
   height: 80px;
   padding-left: 50px;
-  padding-right: 100px;
+  padding-right: 50px;
   font-family: $SpoqaHanSansNeo_FONT;
   background-color: $MAIN_BLACK;
   color: $MAIN_WHITE;
