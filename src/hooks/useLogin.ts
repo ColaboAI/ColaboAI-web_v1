@@ -6,7 +6,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { Token } from '../../types/token';
 import toast from 'react-hot-toast';
 
-type RegisterTypes = [
+type LoginTypes = [
   string,
   string,
   (e: React.ChangeEvent<HTMLInputElement>) => void,
@@ -14,7 +14,7 @@ type RegisterTypes = [
   () => void,
 ];
 
-export const useLogin = (): RegisterTypes => {
+export const useLogin = (): LoginTypes => {
   const router = useRouter();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -35,7 +35,6 @@ export const useLogin = (): RegisterTypes => {
     } else
       postLogin(username, password)
         .then(function (response: AxiosResponse<Token>) {
-          console.log(response.data.access_token);
           setToken(response.data.access_token);
           router.push('/');
         })
