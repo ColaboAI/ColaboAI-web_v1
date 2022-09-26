@@ -9,17 +9,14 @@ import { useLogout } from '@src/hooks/useLogout';
 export default function Header() {
   const [searchWord, setSearchWord] = useRecoilState(searchWordState);
   const [token, setToken] = useState<string | null>('');
-  // const token = getToken();
   const [logout] = useLogout();
   const router = useRouter();
 
   useEffect(() => {
     const item = localStorage.getItem('token');
-    console.log(item);
     if (item !== null) {
       setToken(item);
     }
-    console.log('token', token);
   }, [router]);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
