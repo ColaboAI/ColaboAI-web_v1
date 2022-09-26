@@ -25,7 +25,6 @@ const Index: NextPageWithLayout = () => {
   const [heart, fillHeart, unFillHeart] = useHeart();
   const [star, fillStar, unFillStar] = useStar();
   const { data, isLoading } = useMusicQuery();
-
   // TODO : set Loading Image
   if (isLoading || data === undefined) {
     return <div>로딩 중...</div>;

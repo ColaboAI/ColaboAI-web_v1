@@ -4,8 +4,10 @@ import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import styles from '/styles/login.module.scss';
 import Link from 'next/link';
+import { useLogin } from '@src/hooks/useLogin';
 
-const Register: NextPageWithLayout = () => {
+const Login: NextPageWithLayout = () => {
+  const [username, password, onChangeUsername, onChangePassword, login] = useLogin();
   return (
     <div>
       <NextSeo
@@ -25,13 +27,27 @@ const Register: NextPageWithLayout = () => {
         <p>음악의 새로운 패러다임</p>
         <div className={styles.input}>
           <div>
-            <input className={styles.info} placeholder="이메일" />
+            <input
+              className={styles.info}
+              name={'username'}
+              type="username"
+              value={username}
+              onChange={(e) => onChangeUsername(e)}
+              placeholder="이메일"
+            />
           </div>
           <div>
-            <input className={styles.info} type="password" placeholder="비밀번호" />
+            <input
+              className={styles.info}
+              name={'password'}
+              type="password"
+              value={password}
+              onChange={(e) => onChangePassword(e)}
+              placeholder="비밀번호"
+            />
           </div>
           <div className={styles.login}>
-            <button>로그인</button>
+            <button onClick={() => login()}>로그인</button>
           </div>
           <div className={styles.toRegister}>
             <p>루프에이아이가 처음이세요?</p>
@@ -46,8 +62,8 @@ const Register: NextPageWithLayout = () => {
   );
 };
 
-Register.getLayout = function getLayout(page: ReactElement) {
+Login.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default Register;
+export default Login;
