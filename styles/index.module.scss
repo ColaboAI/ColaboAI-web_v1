@@ -1,0 +1,126 @@
+@import 'common/common';
+@import 'common/mixins';
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.background > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: $MAIN_WHITE;
+  font-size: 48px;
+  //margin-left: -250px;
+}
+
+.title > button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  width: 270px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: $MAIN_BLACK;
+  font-size: 28px;
+  //margin-left: -250px;
+  &:hover {
+    transition: all 0.3s;
+    transform: scale(1.03);
+    background-color: rgba(0, 255, 255, 0.8);
+    cursor: pointer;
+  }
+}
+
+.playList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $MAIN_BLACK;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+.playListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 50px;
+}
+
+.playListHeader > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  color: $MAIN_WHITE;
+  font-size: 24px;
+}
+
+.musicContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: $SpoqaHanSansNeo_FONT;
+  background-color: $MAIN_BLACK;
+  color: $MAIN_WHITE;
+  font-size: 18px;
+}
+
+.album {
+  width: 10%;
+}
+
+.musicName {
+  width: 30%;
+}
+
+.musicArtist {
+  width: 20%;
+  font-size: 14px;
+}
+
+.start:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons > div {
+  padding-right: 15px;
+}

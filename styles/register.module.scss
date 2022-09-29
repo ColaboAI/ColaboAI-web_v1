@@ -1,0 +1,93 @@
+@import 'common/common';
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.background > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 80px;
+}
+
+.container > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: $MAIN_WHITE;
+  font-size: 48px;
+  //margin-left: -250px;
+  margin-top: -80px;
+}
+
+.input {
+  //margin-left: -250px;
+}
+
+.formBox {
+  margin-bottom: 50px;
+}
+
+.formBox > p {
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+  margin-top: 10px;
+  color: $MAIN_AQUA;
+}
+
+.info {
+  color: #fcfcfc;
+  background-color: rgba(12.2, 12.2, 13.3, 0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(12.2, 12.2, 13.3, 0.6);
+  font-size: 18px;
+  padding: 8px 16px;
+  height: 50px;
+  width: 470px;
+}
+
+.info:focus {
+  outline: 1px solid #ffffff;
+}
+
+.info::placeholder {
+  color: $FONT_WHITE;
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+}
+
+.register > button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  width: 470px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 255, 0.4);
+  color: $MAIN_AQUA;
+  font-size: 28px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $MAIN_GRAY;
+    cursor: default;
+  }
+  //&:hover {
+  //  background-color: rgba(0, 255, 255, 0.4);
+  //}
+}

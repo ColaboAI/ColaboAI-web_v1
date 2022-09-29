@@ -1,18 +1,80 @@
+@import 'common/common';
+
 .headerContainer {
   display: flex;
   background: #171719;
   height: 80px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo {
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 250px;
+  background: #171719;
+}
+
+.logo > a {
+  text-decoration: none;
+  font-size: 24px;
+  float: left;
+  color: #ffffff;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.03);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
 }
 
 .search {
-  margin: 32px 0;
-  text-decoration: none;
-  background: white;
-  border-radius: 4px;
-  border: 1px solid #eaeaea;
+  color: #fcfcfc;
+  background: $MAIN_DARKGRAY;
+  border-radius: 10px;
+  border: 1px solid $MAIN_DARKGRAY;
   font-size: 14px;
   padding: 8px 16px;
-  height: 28px;
+  height: 45px;
+  width: 600px;
+}
+
+.search:focus {
+  outline: 1px solid $MAIN_DARKGRAY;
+}
+
+.search::placeholder {
+  color: $FONT_WHITE;
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+}
+
+.button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  background: #171719;
+  border: none;
+  font-size: 16px;
+  height: 80px;
+  color: #ffffff;
+  transition: all 0.125s ease;
+  padding: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.03);
+    color: $MAIN_AQUA;
+    cursor: pointer;
+  }
+}
+
+.button:hover {
+  color: $MAIN_AQUA;
 }

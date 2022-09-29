@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import Layout from '../src/components/layout';
+import Layout from '@src/components/layout/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 

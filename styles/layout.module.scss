@@ -1,9 +1,11 @@
+@import 'common/common';
+
 .container {
   text-align: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: #000133;
+  color: $MAIN_BLACK;
 }
 
 .content {
@@ -12,6 +14,6 @@
 }
 
 .pageContainer {
-  padding: 20px;
-  width: 80vw;
+  width: 100%;
+  background-color: $MAIN_BLACK;
 }

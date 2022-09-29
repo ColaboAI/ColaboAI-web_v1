@@ -1,0 +1,63 @@
+@import 'common/common';
+
+.footer {
+  background-color: $MAIN_DARKGRAY;
+  position: fixed;
+  border-top: 1px solid $MAIN_DARKGRAY;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  color: $FONT_WHITE;
+
+  .footer-inner {
+    margin: auto;
+    display: flex;
+  }
+
+  .footer-button {
+    position: relative;
+    background: none;
+    top: 2px;
+    border: 0;
+    height: 50px;
+
+    .svg {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .time-span {
+    font-size: 12px;
+    padding: 16px 15px;
+  }
+
+  .music-player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $MAIN_DARKGRAY;
+  }
+
+  .music-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .music-album {
+      width: 20%;
+    }
+
+    .music-name {
+      width: 50%;
+    }
+    .music-artist {
+      width: 30%;
+      font-size: 14px;
+    }
+  }
+}
