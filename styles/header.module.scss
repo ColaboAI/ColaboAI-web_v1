@@ -1,9 +1,10 @@
 @import 'common/common';
+@import "common/_mixins";
 
 .headerContainer {
   display: flex;
   background: #171719;
-  height: 80px;
+  height: 60px;
   width: 100%;
   overflow: hidden;
 }
@@ -12,13 +13,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
+  width: 180px;
   background: #171719;
 }
 
 .logo > a {
+  @include mobile{
+    font-size: 16px;
+  }
+
+  @include tablet{
+    font-size: 18px;
+  }
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   float: left;
   color: #ffffff;
   &:hover {
@@ -32,7 +40,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  overflow: hidden;
 }
 
 .search {
@@ -44,6 +51,7 @@
   padding: 8px 16px;
   height: 45px;
   width: 600px;
+  display: none;
 }
 
 .search:focus {
@@ -56,10 +64,13 @@
 }
 
 .button {
+  @include mobile{
+    font-size: 12px;
+  }
   font-family: $SpoqaHanSansNeo_FONT;
   background: #171719;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   height: 80px;
   color: #ffffff;
   transition: all 0.125s ease;
