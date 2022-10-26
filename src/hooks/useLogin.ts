@@ -36,6 +36,7 @@ export const useLogin = (): LoginTypes => {
       postLogin(username, password)
         .then(function (response: AxiosResponse<Token>) {
           setToken(response.data.access_token);
+          toast.success(`로그인에 성공하였습니다!: ${username}`);
           router.push('/');
         })
         .catch(function (error: AxiosError) {
