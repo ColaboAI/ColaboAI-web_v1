@@ -19,16 +19,23 @@ import useHeart from '@src/hooks/useHeart';
 import useStar from '@src/hooks/useStar';
 import useMusicQuery from '@src/queries/music.queries';
 import Image from 'next/image';
+import { Mobile, DesktopOrTablet } from '@src/hooks/useMediaQuery';
+import MusicLottie from '@src/utils/lotties/musicLottie';
+import Proto from '@src/utils/proto';
+import { useRecoilValue } from 'recoil';
+import { audioListState } from '@src/store/atom';
 
 const Index: NextPageWithLayout = () => {
   const [play, musicId, start, stop] = usePlay();
   const [heart, fillHeart, unFillHeart] = useHeart();
   const [star, fillStar, unFillStar] = useStar();
   const { data, isLoading } = useMusicQuery();
-  // TODO : set Loading Image
+  const audioList = useRecoilValue(audioListState);
+  console.log(audioList);
   if (isLoading || data === undefined) {
     return <div>로딩 중...</div>;
   }
+
   return (
     <div>
       <NextSeo
@@ -39,68 +46,122 @@ const Index: NextPageWithLayout = () => {
           url: 'https://colabo.ai',
         }}
       />
-      <div className={styles.background}>
-        <video muted autoPlay loop>
-          <source src="/mp4/index_background.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div className={styles.title}>
-        <p>
-          인공지능으로 작곡한 음악 <br />
-          저작권 걱정없이 무료로 이용하세요
-        </p>
-        <Link href="/login">
-          <button>시작하기</button>
-        </Link>
-      </div>
-      <div className={styles.playList}>
-        <div className={styles.playListHeader}>
-          <p>AI BGM TOP 10</p>
-        </div>
-        {data.map((music) => (
-          <div className={styles.musicContainer} key={music.id}>
-            <div>{music.id}</div>
-            <div className={styles.album}>
-              <Image src={music.cover_image_url} width={60} height={60} />
+      <DesktopOrTablet>
+        <>
+          <div className={styles.background}>
+            <video muted autoPlay loop>
+              <source src="/mp4/index_background.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className={styles.title}>
+            <p>
+              인공지능으로 작곡한 음악 <br />
+              저작권 걱정없이 무료로 이용하세요
+            </p>
+            <Link href="/login">
+              <button>시작하기</button>
+            </Link>
+          </div>
+          <div className={styles.playList}>
+            <div className={styles.playListHeader}>
+              <p>AI BGM SAMPLE</p>
             </div>
-            <div className={styles.start}>
-              {musicId === music.id && play ? (
-                <IoMdPause size={25} onClick={stop} />
-              ) : (
-                <IoMdPlay size={25} onClick={() => start(music)} />
-              )}
+            {data.map((music) => (
+              <div className={styles.musicContainer} key={music.id}>
+                <div>{music.id}</div>
+                <div className={styles.album}>
+                  <Image src={music.cover_image_url} width={60} height={60} />
+                </div>
+                <div className={styles.start}>
+                  {musicId === music.id && play ? (
+                    <IoMdPause size={25} onClick={stop} />
+                  ) : (
+                    <IoMdPlay size={25} onClick={() => start(music)} />
+                  )}
+                </div>
+                <div className={styles.musicName}>{music.title}</div>
+                <div className={styles.musicArtist}>{music.artist_name}</div>
+                <div className={styles.icons}>
+                  {!heart ? (
+                    <div>
+                      <IoMdHeartEmpty onClick={fillHeart} size={25} />
+                    </div>
+                  ) : (
+                    <div>
+                      <IoMdHeart onClick={unFillHeart} size={25} />
+                    </div>
+                  )}
+                  <div>
+                    <IoMdArrowRoundDown size={25} />
+                  </div>
+                  {!star ? (
+                    <div>
+                      <IoMdStarOutline onClick={fillStar} size={25} />
+                    </div>
+                  ) : (
+                    <div>
+                      <IoMdStar onClick={unFillStar} size={25} />
+                    </div>
+                  )}
+                  <div>
+                    <IoMdShare size={25} />
+                  </div>
+                </div>
+              </div>
+            ))}
+            <Proto />
+          </div>
+        </>
+      </DesktopOrTablet>
+      <Mobile>
+        <>
+          <div className={styles.background}>
+            <video muted autoPlay loop playsInline={true}>
+              <source src="/mp4/index_background.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className={styles.title}>
+            <p>
+              <span style={{ color: '#00ffff' }}>인공지능</span>
+              으로 작곡한 음악 <br />
+              이제는 <span style={{ color: '#00ffff' }}>저작권 </span>
+              걱정없이
+            </p>
+            <div className={styles.subtitle}>
+              <p>
+                숏폼 콘텐츠 제작에 필요한 배경음악
+                <br />
+                이제 무제한으로 즐기세요
+              </p>
             </div>
-            <div className={styles.musicName}>{music.title}</div>
-            <div className={styles.musicArtist}>{music.artist_name}</div>
-            <div className={styles.icons}>
-              {!heart ? (
-                <div>
-                  <IoMdHeartEmpty onClick={fillHeart} size={25} />
+            <MusicLottie />
+          </div>
+          <div className={styles.playList}>
+            <div className={styles.playListHeader}>
+              <p>AI MUSIC</p>
+            </div>
+            {data.map((music) => (
+              <div className={styles.musicContainer} key={music.id}>
+                <div className={styles.album}>
+                  <Image src={music.cover_image_url} width={50} height={50} />
                 </div>
-              ) : (
-                <div>
-                  <IoMdHeart onClick={unFillHeart} size={25} />
+                <div className={styles.start}>
+                  {musicId === music.id && play ? (
+                    <IoMdPause size={20} onClick={stop} />
+                  ) : (
+                    <IoMdPlay size={20} onClick={() => start(music)} />
+                  )}
                 </div>
-              )}
-              <div>
-                <IoMdArrowRoundDown size={25} />
+                <div className={styles.musicName}>{music.title}</div>
+                <div className={styles.musicArtist}>{music.artist_name}</div>
               </div>
-              {!star ? (
-                <div>
-                  <IoMdStarOutline onClick={fillStar} size={25} />
-                </div>
-              ) : (
-                <div>
-                  <IoMdStar onClick={unFillStar} size={25} />
-                </div>
-              )}
-              <div>
-                <IoMdShare size={25} />
-              </div>
+            ))}
+            <div style={{ width: '300px' }}>
+              <Proto />
             </div>
           </div>
-        ))}
-      </div>
+        </>
+      </Mobile>
     </div>
   );
 };

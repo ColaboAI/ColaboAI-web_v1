@@ -1,4 +1,5 @@
 @import 'common/common';
+@import 'common/mixins';
 
 .footer {
   background-color: $MAIN_DARKGRAY;
@@ -45,18 +46,35 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    @include mobile {
+      padding: 5px;
+      justify-content: flex-start;
+    }
     justify-content: space-between;
     width: 100%;
 
     .music-album {
       width: 20%;
+      @include mobile {
+        margin-right: 1rem;
+      }
     }
 
     .music-name {
       width: 50%;
+      @include mobile {
+        font-size: 14px;
+        width: 100%;
+      }
+      font-size: 18px;
     }
     .music-artist {
       width: 30%;
+      @include mobile {
+        font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+        width: 100%;
+        color: #d1d1d1;
+      }
       font-size: 14px;
     }
   }

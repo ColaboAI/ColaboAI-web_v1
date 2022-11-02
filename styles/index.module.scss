@@ -7,6 +7,9 @@
   justify-content: center;
   width: 100%;
   height: 50vh;
+  @include mobile {
+    height: 45vh;
+  }
   overflow: hidden;
   position: relative;
 }
@@ -24,6 +27,10 @@
   flex-direction: column;
   width: 100%;
   height: 50vh;
+  @include mobile {
+    height: 45vh;
+    top: 45px;
+  }
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 60px;
@@ -37,6 +44,12 @@
   word-spacing: 3px;
   color: $MAIN_WHITE;
   font-size: 48px;
+  line-height: normal;
+  @include mobile {
+    word-spacing: normal;
+    font-size: 28px;
+    line-height: 1.5;
+  }
   //margin-left: -250px;
 }
 
@@ -58,6 +71,19 @@
   }
 }
 
+.subtitle > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: #d1d1d1;
+  font-size: 28px;
+  line-height: normal;
+  @include mobile {
+    word-spacing: normal;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  //margin-left: -250px;
+}
 .playList {
   display: flex;
   align-items: center;
@@ -65,21 +91,29 @@
   flex-direction: column;
   background-color: $MAIN_BLACK;
   width: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 }
 
 .playListHeader {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
   padding-left: 50px;
+  @include mobile {
+    padding-left: 0px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  width: 100%;
 }
 
 .playListHeader > p {
   font-family: $SpoqaHanSansNeo_FONT;
   color: $MAIN_WHITE;
   font-size: 24px;
+  @include mobile {
+    font-size: 24px;
+  }
 }
 
 .musicContainer {
@@ -87,9 +121,12 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 80px;
-  padding-left: 50px;
-  padding-right: 50px;
+  height: 100px;
+  @include mobile {
+    padding: 10px;
+    height: 80px;
+  }
+  padding: 50px;
   font-family: $SpoqaHanSansNeo_FONT;
   background-color: $MAIN_BLACK;
   color: $MAIN_WHITE;
@@ -98,15 +135,25 @@
 
 .album {
   width: 10%;
+  @include mobile {
+    width: 20%;
+  }
 }
 
 .musicName {
   width: 30%;
+  font-size: 20px;
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
 .musicArtist {
   width: 20%;
-  font-size: 14px;
+  font-size: 16px;
+  @include mobile {
+    font-size: 10px;
+  }
 }
 
 .start:hover {
