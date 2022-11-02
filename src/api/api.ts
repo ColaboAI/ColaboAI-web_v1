@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { AudioTypes } from '../../types/music';
-import { UserCreate } from '../../types/user';
+import { UserBase, UserCreate } from '../../types/user';
 import FormData from 'form-data';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: 'http://192.168.0.22:8000',
 });
 
 const getMusic = async () => {
@@ -30,4 +30,9 @@ async function postUser(params: UserCreate) {
   return res;
 }
 
-export { getMusic, postLogin, postUser };
+async function postProto(params: UserBase) {
+  const res = await api.post('/audio/proto', params);
+  return res;
+}
+
+export { getMusic, postLogin, postUser, postProto };

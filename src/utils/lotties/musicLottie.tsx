@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from 'public/lottie/musicWave.json';
+import animationData from '@public/lottie/musicWave.json';
 
 const MusicLottie = () => {
   const defaultOptions = {

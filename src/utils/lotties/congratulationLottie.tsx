@@ -1,8 +1,8 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '@public/lottie/musicWave.json';
+import animationData from '@public/lottie/congratulations.json';
 
-const MusicLottie = () => {
+const CongratulationLottie = () => {
   const defaultOptions = {
     loop: true,
     autoPlay: true,
@@ -14,9 +14,9 @@ const MusicLottie = () => {
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={65} width={300} />
+      <Lottie options={defaultOptions} />
     </div>
   );
 };
 
-export default MusicLottie;
+export default CongratulationLottie;

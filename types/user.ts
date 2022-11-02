@@ -13,4 +13,4 @@ interface UserRead extends UserBase {
   is_verified: boolean;
 }
 
-export type { UserCreate, UserRead };
+export type { UserBase, UserCreate, UserRead };

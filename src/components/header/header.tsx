@@ -5,6 +5,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLogout } from '@src/hooks/useLogout';
+import { Mobile, DesktopOrTablet } from '@src/hooks/useMediaQuery';
 
 export default function Header() {
   const [searchWord, setSearchWord] = useRecoilState(searchWordState);
@@ -24,28 +25,41 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.headerContainer}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <a>루프에이아이</a>
-        </Link>
-      </div>
-      <div className={styles.header}>
-        <div className={styles.input}>
-          <input className={styles.search} onChange={handleInput} value={searchWord} placeholder="검색하기" />
+    <>
+      <DesktopOrTablet>
+        <div className={styles.headerContainer}>
+          <div className={styles.logo}>
+            <Link href="/">
+              <a>루프에이아이</a>
+            </Link>
+          </div>
+          <div className={styles.header}>
+            <div className={styles.input}>
+              <input className={styles.search} onChange={handleInput} value={searchWord} placeholder="검색하기" />
+            </div>
+            <div>
+              {token == '' ? (
+                <button className={styles.button} onClick={() => router.push('/login')}>
+                  로그인 / 회원가입
+                </button>
+              ) : (
+                <button className={styles.button} onClick={() => logout()}>
+                  로그아웃
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-        <div>
-          {token == '' ? (
-            <button className={styles.button} onClick={() => router.push('/login')}>
-              로그인 / 회원가입
-            </button>
-          ) : (
-            <button className={styles.button} onClick={() => logout()}>
-              로그아웃
-            </button>
-          )}
+      </DesktopOrTablet>
+      <Mobile>
+        <div className={styles.headerContainer}>
+          <div className={styles.logo}>
+            <Link href="/">
+              <a>루프에이아이</a>
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </Mobile>
+    </>
   );
 }

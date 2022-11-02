@@ -1,0 +1,94 @@
+@import 'common/common';
+@import 'common/mixins';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: $MAIN_WHITE;
+  font-size: 48px;
+  @include mobile {
+    font-size: 24px;
+  }
+  //margin-left: -250px;
+}
+.subtitle > p {
+  font-family: $SpoqaHanSansNeo_FONT;
+  word-spacing: 3px;
+  color: #d1d1d1;
+  font-size: 28px;
+  line-height: normal;
+  @include mobile {
+    word-spacing: normal;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  //margin-left: -250px;
+}
+.input {
+  //margin-left: -250px;
+}
+
+.formBox {
+  margin-bottom: 50px;
+}
+
+.formBox > p {
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+  margin-top: 10px;
+  color: $MAIN_AQUA;
+}
+
+.info {
+  color: #fcfcfc;
+  background-color: rgba(12.2, 12.2, 13.3, 0.6);
+  border-radius: 1rem;
+  border: 1px solid rgba(12.2, 12.2, 13.3, 0.6);
+  @include mobile {
+    font-size: 16px;
+    width: 300px;
+  }
+  font-size: 18px;
+  padding: 8px 16px;
+  height: 50px;
+  width: 470px;
+}
+
+.info:focus {
+  outline: 1px solid #ffffff;
+  box-shadow: 0 0 0 2px;
+}
+
+.info::placeholder {
+  color: $FONT_WHITE;
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+}
+
+.register > button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  width: 470px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 255, 0.4);
+  color: $MAIN_AQUA;
+  font-size: 28px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  @include mobile {
+    font-size: 16px;
+    width: 300px;
+  }
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $MAIN_GRAY;
+    cursor: default;
+  }
+}

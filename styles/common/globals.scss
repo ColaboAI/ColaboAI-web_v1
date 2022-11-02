@@ -1,4 +1,5 @@
 @import 'common';
+@import '_mixins.scss';
 
 html,
 body {
@@ -36,6 +37,10 @@ h2 {
 .rhap_progress-section {
   height: 20px;
   padding-bottom: 20px;
+  @include mobile {
+    padding-bottom: 0;
+    height: 0;
+  }
 }
 
 .rhap_progress-bar {

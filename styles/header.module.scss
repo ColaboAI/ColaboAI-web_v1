@@ -1,9 +1,12 @@
 @import 'common/common';
-@import "common/_mixins";
+@import 'common/_mixins';
 
 .headerContainer {
   display: flex;
   background: #171719;
+  @include mobile {
+    height: 45px;
+  }
   height: 60px;
   width: 100%;
   overflow: hidden;
@@ -13,21 +16,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @include mobile {
+    width: 100%;
+  }
   width: 180px;
   background: #171719;
 }
 
 .logo > a {
-  @include mobile{
-    font-size: 16px;
-  }
-
-  @include tablet{
-    font-size: 18px;
-  }
   text-decoration: none;
-  font-size: 20px;
-  float: left;
+  font-size: 24px;
+  @include mobile {
+    font-size: 20px;
+  }
   color: #ffffff;
   &:hover {
     transition: all 0.2s;
@@ -64,9 +65,6 @@
 }
 
 .button {
-  @include mobile{
-    font-size: 12px;
-  }
   font-family: $SpoqaHanSansNeo_FONT;
   background: #171719;
   border: none;
@@ -84,8 +82,4 @@
     color: $MAIN_AQUA;
     cursor: pointer;
   }
-}
-
-.button:hover {
-  color: $MAIN_AQUA;
 }

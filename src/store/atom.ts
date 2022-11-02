@@ -1,8 +1,14 @@
 import { atom } from 'recoil';
+import { AudioTypes } from '../../types/music';
 
 export const audioState = atom<string>({
   key: 'audioState',
   default: '',
+});
+
+export const audioListState = atom<AudioTypes[]>({
+  key: 'audioListState',
+  default: [],
 });
 
 export const playState = atom<boolean>({
