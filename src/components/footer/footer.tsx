@@ -47,7 +47,7 @@ export default function Footer() {
     <>
       <DesktopOrTablet>
         <>
-          {audio && (
+          {audio ? (
             <div className={styles.footer}>
               <div className={styles['footer-inner']}>
                 <AudioPlayer
@@ -83,12 +83,12 @@ export default function Footer() {
                 />
               </div>
             </div>
-          )}
+          ) : null}
         </>
       </DesktopOrTablet>
       <Mobile>
         <>
-          {audio && (
+          {audio ? (
             <div className={styles.footer}>
               <div className={styles['footer-inner']}>
                 <AudioPlayer
@@ -119,7 +119,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-          )}
+          ) : null}
         </>
       </Mobile>
     </>
