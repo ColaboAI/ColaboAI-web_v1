@@ -1,6 +1,17 @@
 @import 'common/common';
 @import 'common/mixins';
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
 .footer {
   background-color: $MAIN_DARKGRAY;
   position: fixed;
@@ -10,6 +21,7 @@
   width: 100%;
   height: 100px;
   color: $FONT_WHITE;
+  animation: fadeInUp 0.5s;
 
   .footer-inner {
     margin: auto;
