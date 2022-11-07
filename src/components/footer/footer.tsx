@@ -1,10 +1,12 @@
 import AudioPlayer from 'react-h5-audio-player';
 import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import React, { useEffect, useRef } from 'react';
 import {
+  audioListState,
   audioState,
   coverAlbumState,
+  currentIndexState,
   musicArtistState,
   musicNameState,
   muteState,
@@ -24,15 +26,23 @@ export default function Footer() {
   const musicName = useRecoilValue(musicNameState);
   const musicArtist = useRecoilValue(musicArtistState);
   const coverAlbum = useRecoilValue(coverAlbumState);
+  const audioList = useRecoilValue(audioListState);
+  const setCurrentIndex = useSetRecoilState(currentIndexState);
 
-  const onMusicEnd = () => {
+  const handleOnMusicEnd = () => {
     setPlay(false);
   };
-  const onPlay = () => {
+  const handleOnPlay = () => {
     setPlay(true);
   };
-  const onPause = () => {
+  const handleOnPause = () => {
     setPlay(false);
+  };
+  const handleOnClickNext = () => {
+    setCurrentIndex((currentTrack: number) => (currentTrack < audioList.length - 1 ? currentTrack + 1 : 0));
+  };
+  const handleOnClickPrevious = () => {
+    setCurrentIndex((currentTrack: number) => (currentTrack > 0 ? currentTrack - 1 : audioList.length - 1));
   };
 
   useEffect(() => {
@@ -77,9 +87,11 @@ export default function Footer() {
                   showJumpControls={false}
                   showDownloadProgress={false}
                   hasDefaultKeyBindings={false}
-                  onPlay={onPlay}
-                  onPause={onPause}
-                  onEnded={onMusicEnd}
+                  onPlay={handleOnPlay}
+                  onPause={handleOnPause}
+                  onEnded={handleOnMusicEnd}
+                  onClickNext={handleOnClickNext}
+                  onClickPrevious={handleOnClickPrevious}
                 />
               </div>
             </div>
@@ -113,9 +125,11 @@ export default function Footer() {
                   showJumpControls={false}
                   showDownloadProgress={false}
                   hasDefaultKeyBindings={false}
-                  onPlay={onPlay}
-                  onPause={onPause}
-                  onEnded={onMusicEnd}
+                  onPlay={handleOnPlay}
+                  onPause={handleOnPause}
+                  onEnded={handleOnMusicEnd}
+                  onClickNext={handleOnClickNext}
+                  onClickPrevious={handleOnClickPrevious}
                 />
               </div>
             </div>
