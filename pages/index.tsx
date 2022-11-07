@@ -3,7 +3,6 @@ import Layout from '@src/components/layout/layout';
 import type { NextPageWithLayout } from './_app';
 import { NextSeo } from 'next-seo';
 import usePlay from '@src/hooks/usePlay';
-import Link from 'next/link';
 import {
   IoMdArrowRoundDown,
   IoMdHeartEmpty,
