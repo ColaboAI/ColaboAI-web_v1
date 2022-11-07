@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLogout } from '@src/hooks/useLogout';
 import { Mobile, DesktopOrTablet } from '@src/hooks/useMediaQuery';
+import Image from 'next/image';
+import logo from '@public/image/LoopAI.png';
 
 export default function Header() {
   const [searchWord, setSearchWord] = useRecoilState(searchWordState);
@@ -30,7 +32,7 @@ export default function Header() {
         <div className={styles.headerContainer}>
           <div className={styles.logo}>
             <Link href="/">
-              <a>루프에이아이</a>
+              <Image src={logo} alt="LoopAI Logo" placeholder="blur" />
             </Link>
           </div>
           <div className={styles.header}>
@@ -55,7 +57,7 @@ export default function Header() {
         <div className={styles.headerContainer}>
           <div className={styles.logo}>
             <Link href="/">
-              <a>루프에이아이</a>
+              <Image src={logo} alt="LoopAI Logo" placeholder="blur" width={102} height={27} />
             </Link>
           </div>
         </div>

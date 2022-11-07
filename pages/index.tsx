@@ -24,7 +24,7 @@ import MusicLottie from '@src/utils/lotties/musicLottie';
 import Proto from '@src/utils/proto';
 import { useRecoilState } from 'recoil';
 import { currentIndexState } from '@src/store/atom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Index: NextPageWithLayout = () => {
   const [start, stop, restart, play, musicId] = usePlay();
@@ -32,6 +32,7 @@ const Index: NextPageWithLayout = () => {
   const [star, fillStar, unFillStar] = useStar();
   const [currentIndex, setCurrentIndex] = useRecoilState(currentIndexState);
   const { data, isLoading } = useMusicQuery();
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (currentIndex !== -1 && data !== undefined) {
@@ -65,9 +66,16 @@ const Index: NextPageWithLayout = () => {
               인공지능으로 작곡한 음악 <br />
               저작권 걱정없이 무료로 이용하세요
             </p>
-            <Link href="/login">
-              <button>시작하기</button>
-            </Link>
+            {/*<Link href="/login">*/}
+            <button
+              onClick={() => {
+                if (divRef.current !== null) {
+                  divRef.current.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
+              시작하기
+            </button>
+            {/*</Link>*/}
           </div>
           <div className={styles.playList}>
             <div className={styles.playListHeader}>
@@ -122,7 +130,9 @@ const Index: NextPageWithLayout = () => {
                 </div>
               </div>
             ))}
-            <Proto />
+            <div ref={divRef}>
+              <Proto />
+            </div>
           </div>
         </>
       </DesktopOrTablet>

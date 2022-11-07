@@ -1,5 +1,5 @@
 export default {
-  titleTemplate: '%s | ColaboAI',
+  titleTemplate: '%s | LoopAI',
   additionalLinkTags: [
     {
       rel: 'icon',
@@ -19,7 +19,7 @@ export default {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    site_name: 'ColaboAI',
+    site_name: 'LoopAI',
     images: [{ url: 'https://example.com/example_square_image.png' }],
   },
   twitter: {
