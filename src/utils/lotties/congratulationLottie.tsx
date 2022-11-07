@@ -14,7 +14,7 @@ const CongratulationLottie = () => {
 
   return (
     <div>
-      <Lottie options={defaultOptions} />
+      <Lottie options={defaultOptions} height={300} width={300} />
     </div>
   );
 };
