@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://colabo.ai
+Host: https://loop.colabo.ai
 
 # Sitemaps
-Sitemap: https://colabo.ai/sitemap.xml
+Sitemap: https://loop.colabo.ai/sitemap.xml
