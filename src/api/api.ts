@@ -4,7 +4,7 @@ import { UserBase, UserCreate } from '../../types/user';
 import FormData from 'form-data';
 
 const api = axios.create({
-  baseURL: 'http://192.168.0.22:8000',
+  baseURL: 'http://35.78.208.201:8000',
 });
 
 const getMusic = async () => {
