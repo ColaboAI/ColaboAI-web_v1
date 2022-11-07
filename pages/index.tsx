@@ -22,16 +22,23 @@ import Image from 'next/image';
 import { Mobile, DesktopOrTablet } from '@src/hooks/useMediaQuery';
 import MusicLottie from '@src/utils/lotties/musicLottie';
 import Proto from '@src/utils/proto';
-import { useRecoilValue } from 'recoil';
-import { audioListState } from '@src/store/atom';
+import { useRecoilState } from 'recoil';
+import { currentIndexState } from '@src/store/atom';
+import { useEffect } from 'react';
 
 const Index: NextPageWithLayout = () => {
-  const [play, musicId, start, stop] = usePlay();
+  const [start, stop, restart, play, musicId] = usePlay();
   const [heart, fillHeart, unFillHeart] = useHeart();
   const [star, fillStar, unFillStar] = useStar();
+  const [currentIndex, setCurrentIndex] = useRecoilState(currentIndexState);
   const { data, isLoading } = useMusicQuery();
-  const audioList = useRecoilValue(audioListState);
-  console.log(audioList);
+
+  useEffect(() => {
+    if (currentIndex !== -1 && data !== undefined) {
+      start(data[currentIndex]);
+    }
+  }, [currentIndex]);
+
   if (isLoading || data === undefined) {
     return <div>로딩 중...</div>;
   }
@@ -66,7 +73,7 @@ const Index: NextPageWithLayout = () => {
             <div className={styles.playListHeader}>
               <p>AI BGM SAMPLE</p>
             </div>
-            {data.map((music) => (
+            {data.map((music, currentIndex) => (
               <div className={styles.musicContainer} key={music.id}>
                 <div>{music.id}</div>
                 <div className={styles.album}>
@@ -76,7 +83,13 @@ const Index: NextPageWithLayout = () => {
                   {musicId === music.id && play ? (
                     <IoMdPause size={25} onClick={stop} />
                   ) : (
-                    <IoMdPlay size={25} onClick={() => start(music)} />
+                    <IoMdPlay
+                      size={25}
+                      onClick={() => {
+                        setCurrentIndex(currentIndex);
+                        restart();
+                      }}
+                    />
                   )}
                 </div>
                 <div className={styles.musicName}>{music.title}</div>
@@ -140,7 +153,7 @@ const Index: NextPageWithLayout = () => {
             <div className={styles.playListHeader}>
               <p>AI MUSIC</p>
             </div>
-            {data.map((music) => (
+            {data.map((music, currentIndex) => (
               <div className={styles.musicContainer} key={music.id}>
                 <div className={styles.album}>
                   <Image src={music.cover_image_url} width={50} height={50} />
@@ -149,7 +162,13 @@ const Index: NextPageWithLayout = () => {
                   {musicId === music.id && play ? (
                     <IoMdPause size={20} onClick={stop} />
                   ) : (
-                    <IoMdPlay size={20} onClick={() => start(music)} />
+                    <IoMdPlay
+                      size={20}
+                      onClick={() => {
+                        setCurrentIndex(currentIndex);
+                        restart();
+                      }}
+                    />
                   )}
                 </div>
                 <div className={styles.musicName}>{music.title}</div>

@@ -31,6 +31,11 @@ export const searchWordState = atom<string>({
   default: '',
 });
 
+export const currentIndexState = atom<number>({
+  key: 'currentIndexState',
+  default: -1,
+});
+
 export const musicIdState = atom<number>({
   key: 'musicIdState',
   default: 0,
