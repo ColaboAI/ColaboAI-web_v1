@@ -1,0 +1,77 @@
+@import 'common/common';
+@import 'common/_mixins';
+
+.headerContainer {
+  display: flex;
+  background: #171719;
+  @include mobile {
+    height: 50px;
+  }
+  height: 60px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mobile {
+    width: 100%;
+  }
+  width: 180px;
+  background: #171719;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.search {
+  color: #fcfcfc;
+  background: $MAIN_DARKGRAY;
+  border-radius: 10px;
+  border: 1px solid $MAIN_DARKGRAY;
+  font-size: 14px;
+  padding: 8px 16px;
+  height: 45px;
+  width: 600px;
+  display: none;
+}
+
+.search:focus {
+  outline: 1px solid $MAIN_DARKGRAY;
+}
+
+.search::placeholder {
+  color: $FONT_WHITE;
+  font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+}
+
+.button {
+  font-family: $SpoqaHanSansNeo_FONT;
+  background: #171719;
+  border: none;
+  font-size: 14px;
+  height: 80px;
+  color: #ffffff;
+  transition: all 0.125s ease;
+  padding: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    transition: all 0.2s;
+    transform: scale(1.03);
+    color: $MAIN_AQUA;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,93 @@
+@import 'common/common';
+@import 'common/mixins';
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.footer {
+  background-color: $MAIN_DARKGRAY;
+  position: fixed;
+  border-top: 1px solid $MAIN_DARKGRAY;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  color: $FONT_WHITE;
+  animation: fadeInUp 0.5s;
+
+  .footer-inner {
+    margin: auto;
+    display: flex;
+  }
+
+  .footer-button {
+    position: relative;
+    background: none;
+    top: 2px;
+    border: 0;
+    height: 50px;
+
+    .svg {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .time-span {
+    font-size: 12px;
+    padding: 16px 15px;
+  }
+
+  .music-player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $MAIN_DARKGRAY;
+  }
+
+  .music-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include mobile {
+      padding: 5px;
+      justify-content: flex-start;
+    }
+    justify-content: space-between;
+    width: 100%;
+
+    .music-album {
+      width: 20%;
+      @include mobile {
+        margin-right: 1rem;
+      }
+    }
+
+    .music-name {
+      width: 50%;
+      @include mobile {
+        font-size: 14px;
+        width: 100%;
+      }
+      font-size: 18px;
+    }
+    .music-artist {
+      width: 30%;
+      @include mobile {
+        font-family: $SpoqaHanSansNeo_FONT_REGULAR;
+        width: 100%;
+        color: #d1d1d1;
+      }
+      font-size: 14px;
+    }
+  }
+}

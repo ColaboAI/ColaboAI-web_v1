@@ -1,0 +1,22 @@
+@import 'common/common';
+
+.nav {
+  display: none;
+  flex-direction: column;
+  width: 250px;
+  background-color: #212124;
+}
+
+.nav > a {
+  text-decoration: none;
+  text-align: center;
+  background: #171719;
+  font-size: 20px;
+  height: 72px;
+  width: 100%;
+  padding: 20px 16px;
+  color: #ffffff;
+  &:hover {
+    color: rgba(0, 255, 255, 0.8);
+  }
+}

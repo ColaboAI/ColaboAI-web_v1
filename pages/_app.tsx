@@ -1,19 +1,36 @@
-import '../styles/globals.scss';
+import '@styles/common/globals.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import SEO from 'seo.config';
 import { appWithTranslation } from 'next-i18next';
+import '/public/static/fonts/styles.scss';
+import 'react-h5-audio-player/src/styles.scss';
+import { Toaster } from 'react-hot-toast';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } },
+});
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
-function MyApp({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
+        <Toaster position="top-center" reverseOrder={false} />
       </RecoilRoot>
     </QueryClientProvider>
   );

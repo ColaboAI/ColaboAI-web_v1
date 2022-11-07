@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://loop.colabo.ai
+
+# Sitemaps
+Sitemap: https://loop.colabo.ai/sitemap.xml
