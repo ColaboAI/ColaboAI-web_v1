@@ -4,7 +4,7 @@ import { UserBase, UserCreate } from '../../types/user';
 import FormData from 'form-data';
 
 const api = axios.create({
-  baseURL: 'https://api.colabo.ml',
+  baseURL: 'http://api.colabo.ml',
 });
 
 const getMusic = async () => {
